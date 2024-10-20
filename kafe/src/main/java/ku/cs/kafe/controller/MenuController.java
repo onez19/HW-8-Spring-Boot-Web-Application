@@ -12,7 +12,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import ku.cs.kafe.entity.Menu;
+import org.springframework.web.bind.annotation.PathVariable;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/menus")
@@ -37,6 +39,13 @@ public class MenuController {
     model.addAttribute("menuRequest", new MenuRequest());
     model.addAttribute("categories", categoryService.getAllCategories());
     return "menu-add";
+  }
+
+  @GetMapping("/{id}")
+  public String getOneMenu(@PathVariable UUID id, Model model) {
+    Menu menu = menuService.getOneById(id);
+    model.addAttribute("menu", menu);
+    return "menu-view";
   }
 
 

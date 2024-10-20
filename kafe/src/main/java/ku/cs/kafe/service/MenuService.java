@@ -9,6 +9,7 @@ import ku.cs.kafe.repository.MenuRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.UUID;
 
 
 import java.util.List;
@@ -32,6 +33,9 @@ public class MenuService {
     return menuRepository.findAll();
   }
 
+  public Menu getOneById(UUID id) {
+    return menuRepository.findById(id).get();
+  }
 
   public void createMenu(MenuRequest request) {
     Menu record = modelMapper.map(request, Menu.class);

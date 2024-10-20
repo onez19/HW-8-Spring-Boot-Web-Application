@@ -24,6 +24,10 @@
         <tr th:each="menu : ${category.menus}">
             <td th:text="${menu.name}"></td>
             <td style="text-align: right" th:text="${#numbers.formatDecimal(menu.price, 1, 'COMMA', 2, 'POINT')}"></td>
+            <td style="text-align: center">
+                <a class="btn btn-primary"
+                   th:href="@{/menus/{id}(id=${menu.id})}">View</a>
+            </td>
         </tr>
         </tbody>
     </table>
