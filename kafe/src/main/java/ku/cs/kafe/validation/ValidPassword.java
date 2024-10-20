@@ -1,3 +1,7 @@
+/*
+6510450411
+Thanachote Ngamkana
+*/
 package ku.cs.kafe.validation;
 
 import jakarta.validation.Constraint;
@@ -23,4 +27,3 @@ public @interface ValidPassword {
   Class<? extends Payload>[] payload() default {};
 
 }
-
